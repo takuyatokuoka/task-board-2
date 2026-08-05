@@ -18,7 +18,7 @@ task-board-2は、タスク管理アプリです。
 
 ### リポジトリ
 
-- GitHub: (未作成 - リポジトリ作成後にここに記載)
+- GitHub: https://github.com/takuyatokuoka/task-board-2.git
 - デフォルトブランチ: `main`
 
 ### コミット手順

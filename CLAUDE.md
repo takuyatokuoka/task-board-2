@@ -4,6 +4,20 @@
 
 task-board-2は、タスク管理アプリです。
 
+## デプロイ先
+
+https://takuyatokuoka.github.io/task-board-2/
+
+`main`ブランチへのプッシュをトリガーに、GitHub Actions（[.github/workflows/deploy.yml](.github/workflows/deploy.yml)）が自動でビルド・デプロイする。
+
+## 技術スタック
+
+- フレームワーク: React 19
+- ビルドツール: Vite 8（`@vitejs/plugin-react`）
+- 言語: TypeScript
+- Lint: oxlint
+- パッケージ管理: npm
+
 ## 開発環境
 
 - OS: Windows 11
@@ -62,10 +76,26 @@ task-board-2は、タスク管理アプリです。
 - セキュリティ脆弱性（SQLインジェクション、XSS等）を導入しない
 - 不要な抽象化・将来要件のための設計はしない
 
+### コンポーネント命名規約
+
+- コンポーネントファイル名・関数名はPascalCase（例: `TaskItem.tsx` → `function TaskItem`）
+- 1ファイル1コンポーネント、`export default`でエクスポート
+- スタイルはコンポーネントと同名のCSSファイルを同階層に置く（例: `App.tsx` + `App.css`）
+- 型定義は`src/types.ts`にまとめ、コンポーネントファイルに直書きしない
+- 複数コンポーネントに分割する場合は`src/components/`配下に配置する
+
 ## ディレクトリ構成
 
 ```
 task-board-2/
-├── CLAUDE.md       # このファイル
-└── ...
+├── CLAUDE.md              # このファイル
+├── .github/workflows/     # GitHub Pagesデプロイ用ワークフロー
+├── src/
+│   ├── main.tsx           # エントリポイント
+│   ├── App.tsx            # ルートコンポーネント
+│   ├── App.css
+│   ├── index.css           # グローバルスタイル
+│   └── types.ts            # 型定義
+├── index.html
+└── vite.config.ts
 ```
